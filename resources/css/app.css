@@ -1,0 +1,93 @@
+@font-face {
+	src: url(/resources/fonts/AGaramondPro-Regular.ttf);
+	font-family: 'AGaramondPro-Regular';
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'AGaramondPro-Regular';
+	text-decoration: none;
+	/* color: #000; */
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+.wrapper {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.container {
+	height: 100%;
+	max-width: 1240px;
+	padding: 0px 20px;
+	margin: 0 auto;
+}
+
+header {
+	border-bottom: 2px solid black;
+	height: 70px;
+}
+
+.logo {
+	font-size: 34px;
+}
+
+.header_flex {
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+main {
+	height: 100%;
+}
+
+footer {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	justify-content: center;
+	align-items: center;
+	border-top: 2px solid black;
+	height: 70px;
+}
+
+.menu {
+	display: flex;
+	gap: 20px;
+	margin: 0px 20px;
+}
+
+
+/* WELCOME */
+
+.welcome_block {
+	margin: 0 auto;
+	width: 300px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.welcome_btn_block {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+}
+
+.welcome_btn {
+	padding: 5px 10px;
+	border: 2px solid black;
+	border-radius: 20px;
+}
+
