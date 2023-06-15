@@ -9,13 +9,15 @@
 </head>
 <body>
 	<div class="wrapper">
-		@include('layouts.header')
-
+		@include('inc.header')
+		
 		<main>
-			@yield('content')
+			<div class="container">
+				@yield('content')
+			</div>
 		</main>
 
-		@include('layouts.footer')
+		@include('inc.footer')
 	</div>
 </body>
 </html>
