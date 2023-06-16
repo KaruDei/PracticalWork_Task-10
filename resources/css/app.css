@@ -89,10 +89,28 @@ footer {
 	padding: 5px 10px;
 	border: 2px solid black;
 	border-radius: 20px;
+	font-size: 20px;
 }
 
 
 /* AUTHORIZATION AND REGISTRATION*/
+
+.mess-block {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	justify-content: center;
+	align-items: center;
+}
+
+.error {
+	color: #E77555;
+}
+
+.success {
+	color: lightgreen;
+}
 
 .auth_container {
 	display: flex;
@@ -141,7 +159,7 @@ footer {
 	cursor: pointer;
 }
 
-.label_btn:hover {
+.label_btn:hover, .welcome_btn:hover {
 	background: #000;
 	color: #fff;
 }
