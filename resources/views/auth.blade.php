@@ -9,9 +9,12 @@
 </head>
 <body>
 	<div class="auth_container">
-		<div class="auth_block">
+		<form action=" {{ route('auth.sub') }} " method="POST" class="auth_block">
+		@csrf
 
 			<h1 class="form_title">AUTHORIZATION</h1>
+
+			@include('inc.messages')
 
 			<label for="email" class="form_label"> <p class="label_text">Email <span class="required">*</span></p>
 				<input type="text" id="email" name="email" class="label_input">
@@ -25,7 +28,11 @@
 				<input type="submit" id="auth_sub" name="auth_sub" class="label_btn" value="AUTHORIZATION">
 			</label>
 
-		</div>
+			<a href=" {{ route('reg') }} " class="menu_item">Sign Up</a>
+
+			<a href=" {{ route('home') }} " class="menu_item">Back</a>
+
+		</form>
 	</div>
 </body>
 </html>
