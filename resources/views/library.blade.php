@@ -16,13 +16,24 @@
 		<input type="submit" name="add_book_form_sub" class="add_book_form_sub" value="ADD">
 	</form>
 	
-	<h2 class="library_title">Users books</h2>
+	<h2 class="library_title">Books:</h2>
 
 	<div class="users_conteiner">
 		<h2>User User User</h2>
-		<ul class="book_list">
+		<ul class="book_list" >
 			@foreach ($user_books as $book)
-				<li><a href="{{ route('library_book', $book->id)}}">{{$book->title}}</a></li>
+				<li>
+					<div class="book_block">
+						<a href="{{ route('library_book', $book->id)}}">
+							{{$book->title}}
+						</a>
+						<div class="book_menu">
+							<a href="">Link</a> 
+							<a href=" {{ route('update_book', $book->id) }} ">Update</a> 
+							<a href=" {{ route('delete_book', $book->id) }} ">Delete</a>
+						</div>
+					</div>
+				</li>
 			@endforeach
 		</ul>
 	</div>

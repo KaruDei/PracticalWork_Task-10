@@ -29,7 +29,7 @@ Route::post(
 	'App\Http\Controllers\UserController@auth'
 ) -> name('auth.sub');
 
-route::get(
+Route::get(
 	'/exit', 
 	'App\Http\Controllers\UserController@logout'
 ) -> name('logout');
@@ -47,24 +47,39 @@ Route::post(
 
 /* Profile */
 
-route::get(
+Route::get(
 	'/profile/{id}',
 	'App\Http\Controllers\UserController@profile'
 ) -> name('profile');
 
 /* Library */
 
-route::get(
+Route::get(
 	'/library',
 	'App\Http\Controllers\UserController@out_library'
 ) -> name('library');
 
-route::post(
+Route::post(
 	'/library',
 	'App\Http\Controllers\UserController@add_book'
 ) -> name('add_book');
 
-route::get(
+Route::get(
 	'/library/book/{id}',
 	'App\Http\Controllers\UserController@out_book'
 ) -> name('library_book');
+
+Route::get(
+	'/library/delete/{id}',
+	'App\Http\Controllers\UserController@delete_book'
+) -> name('delete_book');
+
+Route::get(
+	'/library/update/{id}',
+	'App\Http\Controllers\UserController@update_book'
+) -> name('update_book');
+
+Route::post(
+	'/library/update/{id}',
+	'App\Http\Controllers\UserController@update_book_form'
+) -> name('update_book_form');

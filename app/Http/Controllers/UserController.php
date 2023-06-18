@@ -16,19 +16,14 @@ class UserController extends Controller
 	public function Auth(AuthRequest $req) {
 		$email = $req -> input('email');
 		$password = $req -> input('password');
-
 		$user = User::where('email', $email) -> first();
-
 		if ($user && Hash::check($password, $user -> password)) {
-			
 			$credentials = $req->only('email', 'password');
-
 			if (Auth::attempt($credentials)) {
 				return redirect()->intended( route('home') );
 			} else {
 				return redirect() -> route('auth') -> with('error', 'Incorrect data');
 			}
-
 		} else {
 			return redirect() -> route('auth') -> with('error', 'Incorrect data');
 		}
@@ -41,9 +36,7 @@ class UserController extends Controller
 		$user -> l_name = $req -> input('l_name');
 		$user -> email = $req -> input('email');
 		$user -> password = $req -> input('password');
-
 		$user -> save();
-
 		return redirect() -> route('home');
 	}
 
@@ -58,9 +51,7 @@ class UserController extends Controller
 		$book -> user_id = $req -> input('user_id');
 		$book -> title = $req -> input('title');
 		$book -> text = $req -> input('text');
-
 		$book -> save();
-
 		return redirect() -> route('library');
 	}
 
@@ -69,7 +60,17 @@ class UserController extends Controller
 		return redirect() -> route('library');
 	}
 
-	
+	public function update_book($id) {
+		return view('update_book', ['id' => $id]);
+	}
+
+	public function update_book_form($id, BookRequest $req) {
+		$book = Books::find($id);
+		$book -> title = $req -> input('title');
+		$book -> text = $req -> input('text');
+		$book -> save();
+		return redirect() -> route('library');
+	}
 
 	public function out_library() {
 		$user = Auth::user();
@@ -86,4 +87,6 @@ class UserController extends Controller
 		$profile_user = User::find($id);
 		return view('profile', ['profile_user' => $profile_user]);
 	}
+
+
 }

@@ -9,7 +9,7 @@
 	box-sizing: border-box;
 	font-family: 'AGaramondPro-Regular';
 	text-decoration: none;
-	/* color: #000; */
+	color: #000;
 }
 
 html, body {
@@ -236,4 +236,65 @@ footer {
 
 .library_title {
 	margin: 40px 0px;
+}
+
+.book_block {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.book_menu {
+	display: flex;
+	gap: 20px;
+}
+
+/* PROFILE */
+.sign_btn_block {
+	display: flex;
+	gap: 20px;
+	font-size: 18px;
+}
+
+.sign_btn_auth {
+	border: 2px solid #000;
+	border-radius: 20px;
+	padding: 7px 20px;
+}
+
+
+.sign_btn_auth:hover {
+	background-color: #000;
+	color: #fff;
+}
+
+.profile_info_block {
+	margin: 20px;
+	display: flex;
+	gap: 50px;
+	justify-content: center;
+	align-items: center;
+}
+
+.profile_info_img {
+	display: flex;
+	max-width: 250px;
+	max-height: 250px;
+}
+
+.profile_info_img > img {
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 100%;
+	object-fit: cover;
+}
+
+.profile_info_text {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.profile_info_btn {
+
 }
