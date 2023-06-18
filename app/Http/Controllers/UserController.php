@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
+use App\Http\Requests\BookRequest;
 use App\Http\Requests\RegRequest;
+use App\Models\Books;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,5 +50,40 @@ class UserController extends Controller
 	public function logout() {
 		Auth::logout();
 		return redirect() -> route('home');
+	}
+
+	/* library */
+	public function add_book(BookRequest $req) {
+		$book = new Books();
+		$book -> user_id = $req -> input('user_id');
+		$book -> title = $req -> input('title');
+		$book -> text = $req -> input('text');
+
+		$book -> save();
+
+		return redirect() -> route('library');
+	}
+
+	public function delete_book($id) {
+		Books::find($id) -> delete();
+		return redirect() -> route('library');
+	}
+
+	
+
+	public function out_library() {
+		$user = Auth::user();
+		$user_books = Books::all() -> where('user_id', '==', $user->id);
+		return view('library', ['user' => $user, 'user_books' => $user_books]);
+	}
+
+	public function out_book($id) {
+		$book = Books::find($id);
+		return view('book_page', ['book' => $book]);
+	}
+
+	public function profile($id) {
+		$profile_user = User::find($id);
+		return view('profile', ['profile_user' => $profile_user]);
 	}
 }
